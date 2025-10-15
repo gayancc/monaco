@@ -365,4 +365,4 @@ MigrationBackup/
 /src/Libraries/Harmony.Core/Harmony.Core.nuspec
 /src/Presentation/Harmony.Framework/Harmony.Framework.nuspec
 imported_files
-/monacoeditor/ClientApp/.angular
+/ClientApp/.angular
