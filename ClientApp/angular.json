@@ -105,7 +105,8 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "clientapp:build:development"
+            "browserTarget": "clientapp:build:development",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
