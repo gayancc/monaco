@@ -1,0 +1,7 @@
+﻿<div style="display:flex;gap:12px;align-items:center;margin-bottom:8px">
+  <button (click)="validate()">Validate</button>
+  <button (click)="run()">Run</button>
+  <div *ngIf="status" [style.color]="statusColor">{{status}}</div>
+</div>
+<div #editorHost style="height:70vh;border:1px solid #e0e0e0;"></div>
+<pre *ngIf="result">{{result | json}}</pre>
