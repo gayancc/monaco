@@ -20,20 +20,103 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/monaco-editor/min",
+                "output": "/assets/monaco"
+              }
             ],
             "styles": [
-              "node_modules/monaco-editor/min/vs/editor/editor.main.css",
               "src/styles.css"
             ],
-            "scripts": []
-          }
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+              "style-loader/dist/runtime/insertBySelector.js",
+              "style-loader/dist/runtime/insertStyleElement.js",
+              "style-loader/dist/runtime/setAttributesWithoutAttributes.js",
+              "style-loader/dist/runtime/styleDomAPI.js",
+              "style-loader/dist/runtime/styleTagTransform.js",
+              "!../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+              "!../../../../style-loader/dist/runtime/insertBySelector.js",
+              "!../../../../style-loader/dist/runtime/insertStyleElement.js",
+              "!../../../../style-loader/dist/runtime/setAttributesWithoutAttributes.js",
+              "!../../../../style-loader/dist/runtime/styleDomAPI.js",
+              "!../../../../style-loader/dist/runtime/styleTagTransform.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "3mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "200kb",
+                  "maximumError": "300kb"
+                }
+              ],
+              "outputHashing": "all",
+              "optimization": true,
+              "extractLicenses": true,
+              "sourceMap": false,
+              "allowedCommonJsDependencies": [
+                "style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+                "style-loader/dist/runtime/insertBySelector.js",
+                "style-loader/dist/runtime/insertStyleElement.js",
+                "style-loader/dist/runtime/setAttributesWithoutAttributes.js",
+                "style-loader/dist/runtime/styleDomAPI.js",
+                "style-loader/dist/runtime/styleTagTransform.js",
+                "!../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+                "!../../../../style-loader/dist/runtime/insertBySelector.js",
+                "!../../../../style-loader/dist/runtime/insertStyleElement.js",
+                "!../../../../style-loader/dist/runtime/setAttributesWithoutAttributes.js",
+                "!../../../../style-loader/dist/runtime/styleDomAPI.js",
+                "!../../../../style-loader/dist/runtime/styleTagTransform.js"
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "buildOptimizer": false,
+              "allowedCommonJsDependencies": [
+                "style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+                "style-loader/dist/runtime/insertBySelector.js",
+                "style-loader/dist/runtime/insertStyleElement.js",
+                "style-loader/dist/runtime/setAttributesWithoutAttributes.js",
+                "style-loader/dist/runtime/styleDomAPI.js",
+                "style-loader/dist/runtime/styleTagTransform.js",
+                "!../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+                "!../../../../style-loader/dist/runtime/insertBySelector.js",
+                "!../../../../style-loader/dist/runtime/insertStyleElement.js",
+                "!../../../../style-loader/dist/runtime/setAttributesWithoutAttributes.js",
+                "!../../../../style-loader/dist/runtime/styleDomAPI.js",
+                "!../../../../style-loader/dist/runtime/styleTagTransform.js"
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "clientapp:build"
-          }
+            "browserTarget": "clientapp:build:development",
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "clientapp:build:production"
+            },
+            "development": {
+              "browserTarget": "clientapp:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
         }
       }
     }

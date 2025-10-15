@@ -2,7 +2,7 @@
   "name": "clientapp",
   "private": true,
   "scripts": {
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --configuration production"
   },
   "dependencies": {
